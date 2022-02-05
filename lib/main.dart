@@ -4,6 +4,9 @@ import 'exemplo.dart';
 void main() => runApp(MeuApp());
 
 class MeuApp extends StatelessWidget {
+  var textStyle =
+      TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold);
+
   botaoAction() {
     print("Clickado");
   }
@@ -12,20 +15,27 @@ class MeuApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Meu primeiro app flutter'),
-            centerTitle: true,
-          ),
-          body: Column(
-            children: <Widget>[
-              Image(
-                width: 20,
-                image: AssetImage('assets/google.png'),
+        appBar: AppBar(
+          title: Text('Meu primeiro app flutter'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Column(children: <Widget>[
+            Text(
+              "Titulo Legal",
+              style: textStyle,
+            ),
+            Container(
+              child: Icon(
+                Icons.star,
+                size: 40,
+                color: Colors.blue,
               ),
-              Image.network(
-                  "https://i.pinimg.com/originals/74/4f/47/744f47bad00806bba10eceb1b4d0a845.png")
-            ],
-          )),
+            ),
+            FlatButton(child: Text("Click aqui"))
+          ]),
+        ),
+      ),
     );
   }
 }
