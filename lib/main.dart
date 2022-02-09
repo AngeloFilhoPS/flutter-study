@@ -14,6 +14,11 @@ class MeuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.red,
+          primaryTextTheme:
+              TextTheme(title: TextStyle(color: Colors.black87, fontSize: 18))),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Estadia certa'),
