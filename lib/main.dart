@@ -38,7 +38,7 @@ class MeuApp extends StatelessWidget {
                       ),
                       Text(
                         "Jerusalem, Israel",
-                        style: TextStyle(fontWeight: FontWeight.w200),
+                        style: TextStyle(fontWeight: FontWeight.w300),
                       )
                     ],
                   )),
@@ -59,29 +59,23 @@ class MeuApp extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(25),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Column(children: <Widget>[
-                    Icon(
-                      Icons.call,
-                      color: Colors.blue,
-                    ),
-                    Text("Ligar")
-                  ]),
-                  Column(children: <Widget>[
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.blue,
-                    ),
-                    Text("Endereço")
-                  ]),
-                  Column(children: <Widget>[
-                    Icon(
-                      Icons.share_sharp,
-                      color: Colors.blue,
-                    ),
-                    Text("Compartilhar")
-                  ]),
+                  Botao(
+                    icon: Icons.call,
+                    text: "Ligar",
+                    onPress: () {},
+                  ),
+                  Botao(
+                    icon: Icons.location_on,
+                    text: "Endereço",
+                    onPress: () {},
+                  ),
+                  Botao(
+                    icon: Icons.share,
+                    text: "Compartilhar",
+                    onPress: () {},
+                  ),
                 ],
               ),
             ),
@@ -95,5 +89,27 @@ class MeuApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Botao extends StatelessWidget {
+  Botao({this.onPress, @required this.icon, @required this.text});
+
+  Function onPress;
+  IconData icon;
+  var text;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+        onPressed: onPress,
+        child: Container(
+            child: Column(children: <Widget>[
+          Icon(
+            icon,
+            color: Colors.blue,
+          ),
+          Text("Ligar")
+        ])));
   }
 }
