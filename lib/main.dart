@@ -14,82 +14,26 @@ class MeuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.red,
-          primaryTextTheme:
-              TextTheme(title: TextStyle(color: Colors.black87, fontSize: 18))),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Estadia certa'),
+          title: Text('Cores'),
           centerTitle: true,
         ),
-        body: Column(
+        body: ListView(
           children: <Widget>[
-            Image.network(
-                "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/jerusalem.jpeg"),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Column(
-                    children: <Widget>[
-                      Text(
-                        "Kotel",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "Jerusalem, Israel",
-                        style: TextStyle(fontWeight: FontWeight.w300),
-                      )
-                    ],
-                  )),
-                  Spacer(),
-                  Expanded(
-                      child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.star,
-                        color: Colors.blue,
-                      ),
-                      Text("3.008")
-                    ],
-                  ))
-                ],
+            ListTile(
+              title: Text("Cores"),
+              leading: Icon(Icons.map),
+              trailing: FlatButton(
+                onPressed: null,
+                child: Text("Selecionado"),
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Botao(
-                    icon: Icons.call,
-                    text: "Ligar",
-                    onPress: () {},
-                  ),
-                  Botao(
-                    icon: Icons.location_on,
-                    text: "Endereço",
-                    onPress: () {},
-                  ),
-                  Botao(
-                    icon: Icons.share,
-                    text: "Compartilhar",
-                    onPress: () {},
-                  ),
-                ],
-              ),
-            ),
-            Container(
-                margin: EdgeInsets.all(20),
-                child: Text(
-                  "O Muro das Lamentações ou Muro Ocidental é o segundo local mais sagrado do judaísmo, atrás somente do Santo dos Santos, no monte do Templo. Trata-se do único vestígio do antigo Templo de Herodes, erguido por Herodes, o Grande no lugar do Templo de Jerusalém inicial",
-                  textAlign: TextAlign.justify,
-                ))
+            Container(height: 150, color: Colors.amberAccent),
+            Container(height: 150, color: Colors.cyanAccent),
+            Container(height: 150, color: Colors.limeAccent),
+            Container(height: 150, color: Colors.purpleAccent),
+            Container(height: 150, color: Colors.indigoAccent),
           ],
         ),
       ),
