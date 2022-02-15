@@ -19,21 +19,19 @@ class MeuApp extends StatelessWidget {
           title: Text('Cores'),
           centerTitle: true,
         ),
-        body: ListView(
+        body: GridView.count(
+          crossAxisCount: 3,
+          scrollDirection: Axis.vertical,
           children: <Widget>[
-            ListTile(
-              title: Text("Cores"),
-              leading: Icon(Icons.map),
-              trailing: FlatButton(
-                onPressed: null,
-                child: Text("Selecionado"),
-              ),
+            Container(
+              color: Colors.red,
             ),
-            Container(height: 150, color: Colors.amberAccent),
-            Container(height: 150, color: Colors.cyanAccent),
-            Container(height: 150, color: Colors.limeAccent),
-            Container(height: 150, color: Colors.purpleAccent),
-            Container(height: 150, color: Colors.indigoAccent),
+            Container(
+              color: Colors.blue,
+            ),
+            Container(
+              color: Colors.green,
+            ),
           ],
         ),
       ),
