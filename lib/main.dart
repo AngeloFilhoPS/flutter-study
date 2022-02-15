@@ -4,37 +4,28 @@ import 'exemplo.dart';
 void main() => runApp(MeuApp());
 
 class MeuApp extends StatelessWidget {
-  var textStyle =
-      TextStyle(fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold);
-
-  botaoAction() {
-    print("Clickado");
-  }
+  var contatos = ['Bonnieky', 'Angelo', 'Victor', 'Melissa'];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Cores'),
-          centerTitle: true,
-        ),
-        body: GridView.count(
-          crossAxisCount: 3,
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Container(
-              color: Colors.red,
-            ),
-            Container(
-              color: Colors.blue,
-            ),
-            Container(
-              color: Colors.green,
-            ),
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            title: Text('Cores'),
+            centerTitle: true,
+          ),
+          body: ListView.builder(
+              itemCount: contatos.length,
+              itemBuilder: (ctx, index) {
+                return ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('${contatos[index]}'),
+                  trailing: FlatButton(
+                    onPressed: null,
+                    child: Text('Ligar'),
+                  ),
+                );
+              })),
     );
   }
 }
