@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'help.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -10,7 +11,8 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/help');
+            Navigator.pushNamed(context, '/help',
+                arguments: ScreenArguments("Titulo", "Mensagem entre telas"));
           },
           child: Text('Ir para Help'),
         ),
