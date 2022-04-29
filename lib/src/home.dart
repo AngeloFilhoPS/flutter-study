@@ -1,20 +1,41 @@
 import 'package:flutter/material.dart';
-import 'help.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePage createState() => _HomePage();
+}
+
+class _HomePage extends State<HomePage> {
+  int contagem = 0;
+  var fundo = Colors.red;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text("Home Page"),
       ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/help',
-                arguments: ScreenArguments("Titulo", "Mensagem entre telas"));
-          },
-          child: Text('Ir para Help'),
+      body: Container(
+        color: fundo,
+        child: Column(
+          children: <Widget>[
+            Text("Contagem"),
+            Text(contagem.toString()),
+            RaisedButton(
+                child: Text("Aumentar"),
+                onPressed: () {
+                  setState(() {
+                    contagem++;
+                  });
+                }),
+            RaisedButton(
+                child: Text("Azul"),
+                onPressed: () {
+                  setState(() {
+                    fundo = Colors.blue;
+                  });
+                })
+          ],
         ),
       ),
     );
